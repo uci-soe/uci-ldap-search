@@ -3,10 +3,15 @@ A search tool based on [ldapjs](https://github.com/mcavage/node-ldapjs) which ad
 It is very simple so far and has very little concept of searches, but it is a minor step to make ldap more accessible to those who just need to search quickly for basic information like campus_id, name, email, phone number, etc. only things which one can already get from [the directory](http://directory.uci.edu/).
 
 ## Install
+Unfortunately, until NPM fixes its handling of SSH Keys, the best way to install using NPM is this:
+
 
 ```sh
-$ npm install --save git@github.oit.uci.edu:education/node-ldap.git
+$ GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub' npm install git+ssh://git@github.oit.uci.edu:education/node-ldap.git
 ```
+
+Of course, replace `~/.ssh/id_rsa.pub` with the file location of the RSA Key you generated for Github.oit.uci.edu.
+There is an issue already placed regarding this bug, in NPM, but it has yet to be resolved.
 
 
 ## Usage
