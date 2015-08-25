@@ -21,7 +21,7 @@ uciNodeLdap.searchByNetID('rhett', function (err, data) {
     throw err;
   }
   
-  console.log(data);
+  console.log(data); // object of ldap data
 });
 
 uciNodeLdap.searchBy('(&(cn=Rhett *)(uid=rhett))', function (err, data) {
@@ -29,7 +29,7 @@ uciNodeLdap.searchBy('(&(cn=Rhett *)(uid=rhett))', function (err, data) {
     throw err;
   }
   
-  console.log(data);
+  console.log(data); // object of ldap data
 });
 ```
 
