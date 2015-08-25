@@ -1,32 +1,44 @@
-# uci-node-ldap [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Node.js LDAP search tool tailered for simple UCI directory searching
-
+# uci-node-ldap
+A search tool based on [ldapjs](https://github.com/mcavage/node-ldapjs) which adds UCI's LDAP base and allows non-credentialed search to the extent allowable by OIT.
+It is very simple so far and has very little concept of searches, but it is a minor step to make ldap more accessible to those who just need to search quickly for basic information like campus_id, name, email, phone number, etc. only things which one can already get from [the directory](http://directory.uci.edu/).
 
 ## Install
 
 ```sh
-$ npm install --save uci-node-ldap
+$ npm install --save git@github.oit.uci.edu:education/node-ldap.git
 ```
 
 
 ## Usage
+It only has two functions presently, `searchBy` which takes a raw filter, and `searchByNetID` with takes a UCINetID.
+
 
 ```js
-var uciNodeLdap = require('uci-node-ldap');
+var Ldap = require('uci-node-ldap');
 
-uciNodeLdap('Rainbow');
+uciNodeLdap.searchByNetID('rhett', function (err, data) {
+  if (err) {
+    throw err;
+  }
+  
+  console.log(data);
+});
+
+uciNodeLdap.searchBy('(&(cn=Rhett *)(uid=rhett))', function (err, data) {
+  if (err) {
+    throw err;
+  }
+  
+  console.log(data);
+});
 ```
 
 ## License
+Still working on this. This code is owned by UCI and I guess the greater UC, but I am unsure of which license to use exactly. Please use and modify freely, but don't claim ownership.
+This is subject to, and will, change without notice.
 
- © [Rhett Lowe](https://github.oit.uci.edu/rhett)
+## Contributors
+- [Rhett Lowe](https://github.oit.uci.edu/rhett)
 
-
-[npm-image]: https://badge.fury.io/js/uci-node-ldap.svg
-[npm-url]: https://npmjs.org/package/uci-node-ldap
-[travis-image]: https://travis-ci.org/education/uci-node-ldap.svg?branch=master
-[travis-url]: https://travis-ci.org/education/uci-node-ldap
-[daviddm-image]: https://david-dm.org/education/uci-node-ldap.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/education/uci-node-ldap
-[coveralls-image]: https://coveralls.io/repos/education/uci-node-ldap/badge.svg
-[coveralls-url]: https://coveralls.io/r/education/uci-node-ldap
+## Contributions
+By all means, if you know LDAP better than me (which is just about everyone), jump right in with a fork and a pull request\! 
