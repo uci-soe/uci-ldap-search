@@ -33,6 +33,11 @@ uciNodeLdap.searchBy('(&(cn=Rhett *)(uid=rhett))', function (err, data) {
 });
 ```
 
+## Todo
+- [ ] Add array input for `searchByNetID`
+- [ ] Make functions then-able using promises
+
+
 ## License
 Still working on this. This code is owned by UCI and I guess the greater UC, but I am unsure of which license to use exactly. Please use and modify freely, but don't claim ownership.
 This is subject to, and will, change without notice.
