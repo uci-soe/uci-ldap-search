@@ -1,0 +1,40 @@
+{
+  "name": "uci-node-ldap",
+  "version": "0.0.0",
+  "description": "Node.js LDAP search tool tailered for simple UCI directory searching",
+  "homepage": "https://github.oit.uci.edu/education/node-ldap",
+  "repository": "education/uci-node-ldap",
+  "author": {
+    "name": "Rhett Lowe",
+    "email": "rhett@uci.edu",
+    "url": "https://github.oit.uci.edu/rhett"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "node",
+    "ldap",
+    "search",
+    "client"
+  ],
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^0.4.5",
+    "gulp-coveralls": "^0.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "private": true,
+  "dependencies": {
+    "ldapjs": "^0.7.1"
+  }
+}
