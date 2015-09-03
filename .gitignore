@@ -1,2 +1,5 @@
 node_modules
 coverage
+
+# Webstorm's idea folder
+.idea
