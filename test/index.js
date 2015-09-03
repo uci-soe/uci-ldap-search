@@ -34,14 +34,6 @@ describe('function searchBy', function () {
     });
 
   });
-  it('should return an error when the first argument, string, is empty', function (done) {
-
-    ldap.searchBy('', function (err) {
-      assert(err);
-      done();
-    });
-
-  });
   it('should call the callback with successful data or error after completion', function (done) {
 
     ldap.searchBy('(uid=rhett)', function () {
