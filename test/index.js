@@ -5,28 +5,28 @@ var ldap   = require('../lib');
 
 describe('function searchBy', function () {
 
-  it('should throw error when no arguments given', function () {
+  it('should throw an error when no arguments are given', function () {
 
     assert.throws(function () {
       ldap.searchBy();
     }, Error);
 
   });
-  it('should throw error when first argument isn\'t string', function () {
+  it('should throw an error when first argument isn\'t a string', function () {
 
     assert.throws(function () {
       ldap.searchBy(null);
     }, Error);
 
   });
-  it('should throw error when first argument, string is empty', function () {
+  it('should throw an error when the first argument, string, is empty', function () {
 
     assert.throws(function () {
       ldap.searchBy('');
     }, Error);
 
   });
-  it('should return error when first argument, string is empty', function (done) {
+  it('should return an error when the first argument, string, is empty', function (done) {
 
     ldap.searchBy('', function (err) {
       assert(err);
@@ -34,7 +34,7 @@ describe('function searchBy', function () {
     });
 
   });
-  it('should return error when first argument, string is empty', function (done) {
+  it('should return an error when the first argument, string, is empty', function (done) {
 
     ldap.searchBy('', function (err) {
       assert(err);
@@ -42,7 +42,7 @@ describe('function searchBy', function () {
     });
 
   });
-  it('should call callback with successful data or error after completion', function (done) {
+  it('should call the callback with successful data or error after completion', function (done) {
 
     ldap.searchBy('(uid=rhett)', function () {
 
@@ -70,28 +70,28 @@ describe('function searchBy', function () {
 
 describe('function searchByNetID', function () {
 
-  it('should throw error when no arguments given', function () {
+  it('should throw an error when no arguments are given', function () {
 
     assert.throws(function () {
       ldap.searchByNetID();
     }, Error);
 
   });
-  it('should not throw error when no callback given', function () {
+  it('should not throw an error when no callback is given', function () {
 
     assert.doesNotThrow(function () {
       ldap.searchByNetID('rhett');
     }, Error);
 
   });
-  it('should not throw error when no callback given, with like', function () {
+  it('should not throw an error when no callback is given, with like flag', function () {
 
     assert.doesNotThrow(function () {
       ldap.searchByNetID('rhett', true);
     }, Error);
 
   });
-  it('should call callback with successful data or error after completion', function (done) {
+  it('should call the callback with successful data or error after completion', function (done) {
 
     ldap.searchByNetID('rhett', function () {
 
@@ -114,7 +114,7 @@ describe('function searchByNetID', function () {
     });
 
   });
-  it('should return Rhett when searching for him by UCINetID with like', function (done) {
+  it('should return Rhett when searching for him by UCINetID with like flag', function (done) {
 
     ldap.searchByNetID('hett', true, function (err, data) {
 
@@ -134,7 +134,7 @@ describe('function searchByNetID', function () {
     });
 
   });
-  it('should return error when looking for NetID less than 4 chars', function (done) {
+  it('should return an error when looking for NetID with less than 4 chars', function (done) {
 
     ldap.searchByNetID('het', true, function (err) {
 
