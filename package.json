@@ -33,7 +33,6 @@
     "prepublish": "gulp prepublish",
     "test": "gulp"
   },
-  "private": true,
   "dependencies": {
     "ldapjs": "^0.7.1"
   }
