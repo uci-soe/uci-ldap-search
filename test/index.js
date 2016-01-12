@@ -117,13 +117,15 @@ describe('function searchByNetID', function () {
   it('should return Rhett when searching for him by UCINetID with like', function (done) {
 
     ldap.searchByNetID('hett', true, function (err, data) {
-
       assert.ifError(err);
       assert(data.length > 0, true);
       assert(
         data
+          .map(function (i) {
+            return i.uid;
+          })
           .filter(function (i) {
-            return i.uid === 'rhett';
+            return i === 'rhett';
           })
           .length,
         1

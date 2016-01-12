@@ -7,7 +7,7 @@ Unfortunately, until NPM fixes its handling of SSH Keys, the best way to install
 
 
 ```sh
-$ GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub' npm install git+ssh://git@github.oit.uci.edu:education/node-ldap.git
+$ GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa.pub' npm install --save git+ssh://git@github.oit.uci.edu:education/node-ldap.git
 ```
 
 Of course, replace `~/.ssh/id_rsa.pub` with the file location of the RSA Key you generated for Github.oit.uci.edu.
