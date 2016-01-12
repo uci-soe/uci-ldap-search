@@ -12,6 +12,7 @@
   "files": [
     "lib"
   ],
+  "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "keywords": [
     "node",
