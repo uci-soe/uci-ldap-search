@@ -1,0 +1,111 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.4.0
+3 info using node@v4.2.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/rhett/Projects/uci-node-ldap',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/rhett/.npm/uci-ldap-search/0.1.0/package.tgz not in flight; packing
+9 info lifecycle uci-ldap-search@0.1.0~prepublish: uci-ldap-search@0.1.0
+10 verbose lifecycle uci-ldap-search@0.1.0~prepublish: unsafe-perm in lifecycle true
+11 verbose lifecycle uci-ldap-search@0.1.0~prepublish: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/rhett/Projects/uci-node-ldap/node_modules/.bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/rhett/.rvm/gems/ruby-2.1.2/bin:/Users/rhett/.rvm/gems/ruby-2.1.2@global/bin:/Users/rhett/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/phantomjs/bin:/opt/X11/bin:/Users/rhett/code/git-friendly:/Users/rhett/bin:/Users/rhett/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/packer
+12 verbose lifecycle uci-ldap-search@0.1.0~prepublish: CWD: /Users/rhett/Projects/uci-node-ldap
+13 silly lifecycle uci-ldap-search@0.1.0~prepublish: Args: [ '-c', 'gulp prepublish' ]
+14 silly lifecycle uci-ldap-search@0.1.0~prepublish: Returned: code: 0  signal: null
+15 verbose tar pack [ '/Users/rhett/.npm/uci-ldap-search/0.1.0/package.tgz',
+15 verbose tar pack   '/Users/rhett/Projects/uci-node-ldap' ]
+16 verbose tarball /Users/rhett/.npm/uci-ldap-search/0.1.0/package.tgz
+17 verbose folder /Users/rhett/Projects/uci-node-ldap
+18 verbose addLocalTarball adding from inside cache /Users/rhett/.npm/uci-ldap-search/0.1.0/package.tgz
+19 silly cache afterAdd uci-ldap-search@0.1.0
+20 verbose afterAdd /Users/rhett/.npm/uci-ldap-search/0.1.0/package/package.json not in flight; writing
+21 verbose afterAdd /Users/rhett/.npm/uci-ldap-search/0.1.0/package/package.json written
+22 silly publish { name: 'uci-ldap-search',
+22 silly publish   version: '0.1.0',
+22 silly publish   description: 'Node.js LDAP search tool tailered for simple UCI directory searching',
+22 silly publish   homepage: 'https://github.com/uci-soe/uci-ldap-search',
+22 silly publish   repository:
+22 silly publish    { type: 'git',
+22 silly publish      url: 'git+https://github.com/education/uci-node-ldap.git' },
+22 silly publish   author:
+22 silly publish    { name: 'Rhett Lowe',
+22 silly publish      email: 'rhett@uci.edu',
+22 silly publish      url: 'https://github.com/rhettl' },
+22 silly publish   files: [ 'lib' ],
+22 silly publish   main: 'lib/index.js',
+22 silly publish   keywords: [ 'node', 'ldap', 'search', 'client' ],
+22 silly publish   devDependencies:
+22 silly publish    { gulp: '^3.6.0',
+22 silly publish      'gulp-coveralls': '^0.1.0',
+22 silly publish      'gulp-eslint': '^0.15.0',
+22 silly publish      'gulp-exclude-gitignore': '^1.0.0',
+22 silly publish      'gulp-istanbul': '^0.9.0',
+22 silly publish      'gulp-mocha': '^2.0.0',
+22 silly publish      'gulp-nsp': '^2.3.0',
+22 silly publish      'gulp-plumber': '^1.0.0' },
+22 silly publish   scripts: { prepublish: 'gulp prepublish', test: 'gulp' },
+22 silly publish   dependencies: { ldapjs: '^0.7.1' },
+22 silly publish   readme: '# uci-ldap-search\nA search tool based on [ldapjs](https://github.com/mcavage/node-ldapjs) which adds UCI\'s LDAP base and allows non-credentialed search to the extent allowable by OIT. UCI OIT LDAP information located [here](http://www.oit.uci.edu/idm/ldap/).\n\nIt\'s very simple so far and has very little concept of searches, but it is a minor step to make ldap more accessible to those who just need to search quickly for basic information like campus_id, name, email, phone number, etc. only things which one can already get from [the directory](http://directory.uci.edu/) and campus_id.\n\n## Install\n\n```sh\n$ npm install --save uci-ldap-search\n```\n\n## Usage\nIt only has two functions presently, `searchBy` which takes a raw filter, and `searchByNetID` with takes a UCINetID.\n\n\n```js\nvar Ldap = require(\'uci-ldap-search\');\n\nLdap.searchByNetID(\'rhett\', function (err, data) {\n  if (err) {\n    throw err;\n  }\n  \n  console.log(data); // object of ldap data\n});\n\n// Use like searching.\nvar useLike = true;\nLdap.searchByNetID(\'hett\', useLike, function (err, data) {\n  if (err) {\n    throw err;\n  }\n \n  console.log(data); // array of objects of ldap data\n});\n\nLdap.searchBy(\'(&(cn=Rhett *)(uid=rhett))\', function (err, data) {\n  if (err) {\n    throw err;\n  }\n  \n  console.log(data); // object of ldap data\n});\n```\n\n## Todo\n- [ ] Add array input for `searchByNetID`\n- [ ] Make functions then-able using promises\n- [ ] Add ability to authenticate for non-public usage\n\n\n## License\nSee [LICENSE](LICENSE) for full info.\n\n## Contributors\n- [Rhett Lowe](https://github.com/rhettl)\n\n## Contributions\nBy all means, if you know LDAP better than me (which is just about everyone), jump right in with a fork and a pull request\\! \n',
+22 silly publish   readmeFilename: 'README.md',
+22 silly publish   gitHead: '64d7dc2e32245f7a78b8bfeef1db99cfa88fe440',
+22 silly publish   bugs: { url: 'https://github.com/education/uci-node-ldap/issues' },
+22 silly publish   _id: 'uci-ldap-search@0.1.0',
+22 silly publish   _shasum: 'e85d1b01566baec4f31d0d4d0b2adac23372182b',
+22 silly publish   _from: '.' }
+23 verbose getPublishConfig undefined
+24 silly mapToRegistry name uci-ldap-search
+25 silly mapToRegistry using default registry
+26 silly mapToRegistry registry https://registry.npmjs.org/
+27 silly mapToRegistry uri https://registry.npmjs.org/uci-ldap-search
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/rhett/.npm/uci-ldap-search/0.1.0/package.tgz
+30 verbose request uri https://registry.npmjs.org/uci-ldap-search
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 11:31:34 AM
+33 verbose request using bearer token for auth
+34 verbose request id 374a3ad406ad4a3f
+35 http request PUT https://registry.npmjs.org/uci-ldap-search
+36 http 403 https://registry.npmjs.org/uci-ldap-search
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Tue, 12 Jan 2016 19:31:34 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-sjc3124-SJC',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1452627094.382979,VS0,VE175' }
+38 verbose request invalidating /Users/rhett/.npm/registry.npmjs.org/uci-ldap-search on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.1.0." : uci-ldap-search
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+40 verbose stack     at emitTwo (events.js:87:13)
+40 verbose stack     at Request.emit (events.js:172:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+40 verbose stack     at emitOne (events.js:82:20)
+40 verbose stack     at Request.emit (events.js:169:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+41 verbose statusCode 403
+42 verbose pkgid uci-ldap-search
+43 verbose cwd /Users/rhett/Projects/uci-node-ldap
+44 error Darwin 15.2.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v4.2.2
+47 error npm  v3.4.0
+48 error code E403
+49 error "You cannot publish over the previously published version 0.1.0." : uci-ldap-search
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
