@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Node.js LDAP search tool tailered for simple UCI directory searching",
   "homepage": "https://github.com/uci-soe/uci-ldap-search",
-  "repository": "education/uci-node-ldap",
+  "repository": "uci-soe/uci-node-ldap",
   "author": {
     "name": "Rhett Lowe",
     "email": "rhett@uci.edu",
