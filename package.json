@@ -1,6 +1,6 @@
 {
   "name": "uci-ldap-search",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Node.js LDAP search tool tailered for simple UCI directory searching",
   "homepage": "https://github.com/uci-soe/uci-ldap-search",
   "repository": "uci-soe/uci-node-ldap",
